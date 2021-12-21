@@ -1,0 +1,62 @@
+﻿<Window x:Class="Rostelekek_WPF_API.Windows.WorkerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rostelekek_WPF_API.Windows"
+        Title="Добавление/  Редактирование сотрудников" Height="400" Width="600"
+         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI Historic"
+        FontSize="16"
+        Background="#fff2b2">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Логин" />
+        <TextBlock Text="Пароль" Grid.Row="1" />
+        <TextBlock Text="Имя" Grid.Row="2" />
+        <TextBlock Text="Опыт работы" Grid.Row="3" />
+        <TextBlock Text="Должность" Grid.Row="4" />
+
+        <TextBox Text="{Binding login}" Grid.Column="1" />
+        <TextBox Text="{Binding password}" Grid.Column="1" Grid.Row="1" />
+        <TextBox Text="{Binding name}" Grid.Column="1" Grid.Row="2" />
+        <TextBox Text="{Binding experience}" Grid.Column="1" Grid.Row="3" />
+        <ComboBox Text="{Binding position}" Margin="8" Grid.Column="1" Grid.Row="4">
+            <ComboBoxItem x:Name="CBManager" Content="Диспетчер"></ComboBoxItem>
+            <ComboBoxItem x:Name="CBExecutor" Content="Исполнитель"></ComboBoxItem>
+        </ComboBox>
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2">
+            <Button
+                Height="25"
+                Width="100"
+                Margin="10"
+                IsDefault="True" Click="Accept_Click">OK</Button>
+            <Button
+                Height="25"
+                Width="100"
+                Margin="10"
+                IsCancel="True">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>
