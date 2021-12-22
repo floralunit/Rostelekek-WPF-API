@@ -27,56 +27,73 @@ namespace Rostelekek_WPF_API.Windows
         {
             InitializeComponent();
             this.DataContext = w;
-            id = w.id;
-
+            if (w.name != null)
+            {
+                BEdit.Visibility = Visibility.Visible;
+                id = w.id;
+            }
+            else
+            {
+                BCreate.Visibility = Visibility.Visible;
+            }
         }
 
-        private async void Accept_Click(object sender, RoutedEventArgs e)
+        private async void AcceptCreate_Click(object sender, RoutedEventArgs e)
         {
-            //var client = new HttpClient();
-            //var person = new Worker();
-            //person.name = TBName.Text;
-            //person.password = TBPassword.Text;
-            //person.experience = TBExperience.Text;
-            //person.login = TBLogin.Text;
-            //person.position = CBPosition.SelectedItem.ToString();
-
-            //var json1 = JsonConvert.SerializeObject(person);
-            //var data = new StringContent(json1, Encoding.UTF8, "application/json");
-            //HttpResponseMessage response = new HttpResponseMessage();
-
-            //var uri = new Uri("https://rostelekek.herokuapp.com/auth/register-worker");
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            //response = await client.PostAsync(uri, data);
-            //var json = response.Content.ReadAsStringAsync().Result;
-            //MessageBox.Show(json.ToString());
-            //Close();
-
             var client = new HttpClient();
             var person = new Worker1();
             person.name = TBName.Text;
             person.password = TBPassword.Text;
             person.experience = TBExperience.Text;
             person.login = TBLogin.Text;
-            person.position = CBPosition.SelectedItem.ToString();
+            if (CBPosition.SelectedItem == CBAdmin) person.position = "Администратор";
+            if (CBPosition.SelectedItem == CBManager) person.position = "Диспетчер";
+            if (CBPosition.SelectedItem == CBExecutor) person.position = "Исполнитель";
+
+            var json1 = JsonConvert.SerializeObject(person);
+            var data = new StringContent(json1, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            var uri = new Uri("https://rostelekek.herokuapp.com/auth/register-worker");
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            response = await client.PostAsync(uri, data);
+            var json = response.Content.ReadAsStringAsync().Result;
+            MessageBox.Show(json.ToString());
+            Close();
+        }
+        private async void AcceptEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var client = new HttpClient();
+            var person = new Worker1();
+            person.name = TBName.Text;
+            person.password = TBPassword.Text;
+            person.experience = TBExperience.Text;
+            person.login = TBLogin.Text;
+            if (CBPosition.SelectedItem == CBAdmin) person.position = "Администратор";
+            if (CBPosition.SelectedItem == CBManager) person.position = "Диспетчер";
+            if (CBPosition.SelectedItem == CBExecutor) person.position = "Исполнитель";
 
             var json1 = JsonConvert.SerializeObject(person);
             var data = new StringContent(json1, Encoding.UTF8, "application/json");
             HttpResponseMessage response = new HttpResponseMessage();
             var uri = new Uri(String.Format("https://rostelekek.herokuapp.com/worker/" + id));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-           
+
             var method = new HttpMethod("PATCH");
             var request = new HttpRequestMessage(method, uri)
             {
                 Content = data
             };
             MessageBox.Show(request.ToString());
-            response = await client. SendAsync(request);
+            response = await client.SendAsync(request);
             var json = response.Content.ReadAsStringAsync().Result;
             MessageBox.Show(json.ToString());
             Close();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

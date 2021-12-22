@@ -77,3 +77,6 @@ C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\HttpClientExtensions.Patch.dll
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\HttpClientExtensions.Patch.dll
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Http.Formatting.xml

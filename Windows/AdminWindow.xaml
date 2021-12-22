@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rostelekek_WPF_API.Windows"
         mc:Ignorable="d"
-        Title="Управление сотрудниками Ростелекек" Height="450" Width="800" Loaded="AdminWindow_Loaded">
+        Title="Управление сотрудниками Ростелекек" 
+        Height="400"
+        Width="700"
+        ResizeMode="CanMinimize"  Loaded="AdminWindow_Loaded">
     <Grid>
         <StackPanel>
             <Button Name="BExit" 
@@ -15,6 +18,13 @@
                     Background="Transparent"
                     Foreground="#28666e"
                     Click="BExit_Click" >Выйти</Button>
+            <Button Name="BRestart" 
+                    Padding="5"
+                    Height="auto" 
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    Foreground="#28666e"
+                    Click="BRestart_Click" >Обновить</Button>
             <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Управление сотрудниками Ростелекек</Label>
             <Button Name="BCreate" 
                     Margin="10" 
@@ -23,94 +33,53 @@
                     Height="auto" 
                     HorizontalAlignment="Left"
                     Click="BCreate_Click" >Добавить нового сотрудника</Button>
-            <Grid Margin="8,0,0,0">
-            <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" 
-                         Text="Номер"
-                     Style="{StaticResource headers_style}"></TextBox>
-            <TextBox 
-                Grid.Column="1"  
-                Text="Логин"
-                Style="{StaticResource headers_style}"></TextBox>
-            <TextBox Grid.Column="2" 
-                     Text="Пароль"
-                      Style="{StaticResource headers_style}"></TextBox>
-                <TextBox Grid.Column="3" 
-                     Text="Имя"
-                      Style="{StaticResource headers_style}"></TextBox>
-                <TextBox Grid.Column="4" 
-                     Text="Опыт работы"
-                      Style="{StaticResource headers_style}"></TextBox>
-                <TextBox Grid.Column="5" 
-                     Text="Должность"
-                      Style="{StaticResource headers_style}"></TextBox>
-            </Grid>
-        <ListView Name="LViewWorkers"
-                              Height="535" 
+            <ListView Name="LViewWorkers"
+                              Height="150" 
                               Background="Transparent"  
-                              BorderThickness="0,0,0,0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="#e8c27b" BorderThickness="1" CornerRadius="8, 8, 3, 3">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition ></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                            <TextBox
-                                Grid.Column="0" Grid.RowSpan="2"
-                                Text="{Binding id}" 
-                                Style="{StaticResource LVitems_style}"></TextBox>
-                            <TextBox
-                                Grid.Column="1" Grid.RowSpan="2"
-                                Text="{Binding login}"
-                                Style="{StaticResource LVitems_style}"></TextBox>
-                            <TextBox
-                                Grid.Column="2" Grid.RowSpan="2"
-                                Text="{Binding password}"
-                                Style="{StaticResource LVitems_style}"></TextBox>
-                                <TextBox
-                                Grid.Column="3" Grid.RowSpan="2"
-                                Text="{Binding name}"
-                                Style="{StaticResource LVitems_style}"></TextBox>
-                                <TextBox
-                                Grid.Column="4" Grid.RowSpan="2"
-                                Text="{Binding experience}"
-                                Style="{StaticResource LVitems_style}"></TextBox>
-                                <TextBox
-                                Grid.Column="5" Grid.RowSpan="2"
-                                Text="{Binding position}"
-                                Style="{StaticResource LVitems_style}"></TextBox>
-                                <Button Grid.Column="6"  Grid.Row="0"
+                              Margin="10,5,10,5"
+                      >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
+                        <Setter Property="BorderBrush" Value="Black"></Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                
+                <GridView AllowsColumnReorder="false">
+
+                        <GridView.Columns>
+                            <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Логин" CellTemplate="{StaticResource loginTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Пароль" CellTemplate="{StaticResource passwordTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Имя" CellTemplate="{StaticResource nameTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Опыт работы" CellTemplate="{StaticResource experienceTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Должность" CellTemplate="{StaticResource positionTemplate}"></GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+            <Button  HorizontalAlignment="Left"
+                     Padding="5,5,5,0"
+                     Margin="10,0,10,0"
+                     Background="Transparent"
+                    Foreground="#28666e"
+                    Height="auto" 
                                     Name="BEdit"
                                     Click="BEdit_Click" 
                                     Content="Редактировать"></Button>
-                                <Button Grid.Column="6"  Grid.Row="1"
+            <Button   HorizontalAlignment="Left"
+                      Padding="5,0,5,0"
+                      Margin="10,5,10,0"
+                      Background="Transparent"
+                    Foreground="#28666e"
+                    Height="auto" 
                                         Name="BDelete"
                                         Click="BDelete_Click" 
                                         Content="Удалить"></Button>
-                            </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

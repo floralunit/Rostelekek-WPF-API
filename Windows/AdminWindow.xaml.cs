@@ -21,8 +21,10 @@ namespace Rostelekek_WPF_API.Windows
     /// <summary>
     /// Логика взаимодействия для AdminWindow.xaml
     /// </summary>
+    
     public partial class AdminWindow : Window
     {
+        List<Worker> workers = new List<Worker>();
         public AdminWindow()
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace Rostelekek_WPF_API.Windows
             JArray o = JArray.Parse(json);
             JArray ob = JArray.Parse(o.ToString());
             var pipa = JsonConvert.DeserializeObject<List<Worker>>(ob.ToString());
+            workers = pipa.ToList();
             LViewWorkers.ItemsSource = pipa.ToList();
         }
         private void BEdit_Click(object sender, RoutedEventArgs e)
@@ -74,13 +77,20 @@ namespace Rostelekek_WPF_API.Windows
 
         private async void BCreate_Click(object sender, RoutedEventArgs e)
         {
-            //new WorkerWindow().Show();
-            
+            WorkerWindow workWindow = new WorkerWindow(new Worker());
+            workWindow.Show();
+
         }
         private void BExit_Click(object sender, RoutedEventArgs e)
         {
             new LoginWindow().Show();
             Close();
+        }
+
+        private void BRestart_Click(object sender, RoutedEventArgs e)
+        {
+            new AdminWindow().Show();
+            this.Close();
         }
     }
 }

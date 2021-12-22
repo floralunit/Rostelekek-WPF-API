@@ -77,6 +77,13 @@
             <Setter Property="BorderBrush" Value="white"/>
         </Style>
 
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#28666e"/>
+            <Setter Property="BorderThickness" Value="1,1,1,1"/>
+            <Setter Property="Padding" Value="5,0,5,0"></Setter>
+        </Style>
+
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Segoe UI Historic"/>
         </Style>
@@ -177,5 +184,36 @@
             </Setter>
 
         </Style>
+
+        <DataTemplate x:Key="idTemplate">
+            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="Black" SnapsToDevicePixels="True">
+                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=id}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="loginTemplate">
+            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="Black" SnapsToDevicePixels="True">
+                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=login, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="nameTemplate">
+            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="Black" SnapsToDevicePixels="True">
+                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=name, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="positionTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="Black" SnapsToDevicePixels="True">
+                <TextBlock Padding="25,2,31,2" Text="{Binding Path=position, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="passwordTemplate">
+            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="Black" SnapsToDevicePixels="True">
+                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=password, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="experienceTemplate">
+            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="Black" SnapsToDevicePixels="True">
+                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=experience, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>
