@@ -33,20 +33,20 @@ namespace Rostelekek_WPF_API.Pages
         {
 
 
-            // Account account = JsonConvert.DeserializeObject<Account>(json);
-            // james@example.com
-            var client = new HttpClient();
-            HttpResponseMessage response = new HttpResponseMessage();
-            var uri = new Uri("https://artartwebapp.herokuapp.com/event");
-            response = await client.GetAsync(uri);
-            string json = response.Content.ReadAsStringAsync().Result;
-            JArray o = JArray.Parse(json);
-            JArray ob = JArray.Parse(o[0].ToString());
-            var pipa = JsonConvert.DeserializeObject<List<Art>>(ob.ToString());
-            label.Content = pipa[1].description;
-            Console.WriteLine(pipa[1].description);
-            //var pupa = JsonConvert.DeserializeObject<Art>(pipa.MyArray[0]);
-            //label.Content = pupa.title;
+            //// Account account = JsonConvert.DeserializeObject<Account>(json);
+            //// james@example.com
+            //var client = new HttpClient();
+            //HttpResponseMessage response = new HttpResponseMessage();
+            //var uri = new Uri("https://artartwebapp.herokuapp.com/event");
+            //response = await client.GetAsync(uri);
+            //string json = response.Content.ReadAsStringAsync().Result;
+            //JArray o = JArray.Parse(json);
+            //JArray ob = JArray.Parse(o[0].ToString());
+            //var pipa = JsonConvert.DeserializeObject<List<Art>>(ob.ToString());
+            //label.Content = pipa[1].description;
+            //Console.WriteLine(pipa[1].description);
+            ////var pupa = JsonConvert.DeserializeObject<Art>(pipa.MyArray[0]);
+            ////label.Content = pupa.title;
 
         }
     }

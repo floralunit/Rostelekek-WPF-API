@@ -37,11 +37,11 @@
         <TextBlock Text="Опыт работы" Grid.Row="3" />
         <TextBlock Text="Должность" Grid.Row="4" />
 
-        <TextBox Text="{Binding login}" Grid.Column="1" />
-        <TextBox Text="{Binding password}" Grid.Column="1" Grid.Row="1" />
-        <TextBox Text="{Binding name}" Grid.Column="1" Grid.Row="2" />
-        <TextBox Text="{Binding experience}" Grid.Column="1" Grid.Row="3" />
-        <ComboBox Text="{Binding position}" Margin="8" Grid.Column="1" Grid.Row="4">
+        <TextBox Name="TBLogin" Text="{Binding login}" Grid.Column="1" />
+        <TextBox Name="TBPassword" Text="{Binding password}" Grid.Column="1" Grid.Row="1" />
+        <TextBox Name="TBName" Text="{Binding name}" Grid.Column="1" Grid.Row="2" />
+        <TextBox Name="TBExperience" Text="{Binding experience}" Grid.Column="1" Grid.Row="3" />
+        <ComboBox Name="CBPosition" Text="{Binding position}" Margin="8" Grid.Column="1" Grid.Row="4">
             <ComboBoxItem x:Name="CBManager" Content="Диспетчер"></ComboBoxItem>
             <ComboBoxItem x:Name="CBExecutor" Content="Исполнитель"></ComboBoxItem>
         </ComboBox>

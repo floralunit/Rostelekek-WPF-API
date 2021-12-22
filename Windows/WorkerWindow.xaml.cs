@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,14 +22,61 @@ namespace Rostelekek_WPF_API.Windows
     /// </summary>
     public partial class WorkerWindow : Window
     {
+        int id;
         public WorkerWindow(Worker w)
         {
             InitializeComponent();
+            this.DataContext = w;
+            id = w.id;
+
         }
 
-        private void Accept_Click(object sender, RoutedEventArgs e)
+        private async void Accept_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            //var client = new HttpClient();
+            //var person = new Worker();
+            //person.name = TBName.Text;
+            //person.password = TBPassword.Text;
+            //person.experience = TBExperience.Text;
+            //person.login = TBLogin.Text;
+            //person.position = CBPosition.SelectedItem.ToString();
+
+            //var json1 = JsonConvert.SerializeObject(person);
+            //var data = new StringContent(json1, Encoding.UTF8, "application/json");
+            //HttpResponseMessage response = new HttpResponseMessage();
+
+            //var uri = new Uri("https://rostelekek.herokuapp.com/auth/register-worker");
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //response = await client.PostAsync(uri, data);
+            //var json = response.Content.ReadAsStringAsync().Result;
+            //MessageBox.Show(json.ToString());
+            //Close();
+
+            var client = new HttpClient();
+            var person = new Worker1();
+            person.name = TBName.Text;
+            person.password = TBPassword.Text;
+            person.experience = TBExperience.Text;
+            person.login = TBLogin.Text;
+            person.position = CBPosition.SelectedItem.ToString();
+
+            var json1 = JsonConvert.SerializeObject(person);
+            var data = new StringContent(json1, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = new HttpResponseMessage();
+            var uri = new Uri(String.Format("https://rostelekek.herokuapp.com/worker/" + id));
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+           
+            var method = new HttpMethod("PATCH");
+            var request = new HttpRequestMessage(method, uri)
+            {
+                Content = data
+            };
+            MessageBox.Show(request.ToString());
+            response = await client. SendAsync(request);
+            var json = response.Content.ReadAsStringAsync().Result;
+            MessageBox.Show(json.ToString());
+            Close();
         }
+
     }
 }
