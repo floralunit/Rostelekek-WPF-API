@@ -27,13 +27,11 @@ C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\Rostelekek-WPF-API.
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\Newtonsoft.Json.dll
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\Newtonsoft.Json.xml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.csprojAssemblyReference.cache
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\MainWindow.g.cs
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\ManagerPage.g.cs
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\App.g.cs
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API_MarkupCompile.cache
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API_MarkupCompile.lref
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\App.baml
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\MainWindow.baml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\ManagerPage.baml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.g.resources
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek_WPF_API.Properties.Resources.resources
@@ -80,3 +78,7 @@ C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Htt
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\HttpClientExtensions.Patch.dll
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\MainWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\MainWindow.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\EquipPage.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\EquipPage.baml

@@ -24,7 +24,6 @@ namespace Rostelekek_WPF_API.Windows
     
     public partial class AdminWindow : Window
     {
-        List<Worker> workers = new List<Worker>();
         public AdminWindow()
         {
             InitializeComponent();
@@ -41,7 +40,6 @@ namespace Rostelekek_WPF_API.Windows
             JArray o = JArray.Parse(json);
             JArray ob = JArray.Parse(o.ToString());
             var pipa = JsonConvert.DeserializeObject<List<Worker>>(ob.ToString());
-            workers = pipa.ToList();
             LViewWorkers.ItemsSource = pipa.ToList();
         }
         private void BEdit_Click(object sender, RoutedEventArgs e)
@@ -64,6 +62,7 @@ namespace Rostelekek_WPF_API.Windows
         }
         private async void BDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (LViewWorkers.SelectedIndex == null) return;
             // получаем выделенный объект
             Worker worker = LViewWorkers.SelectedItem as Worker;
             int id = worker.id;
@@ -91,6 +90,18 @@ namespace Rostelekek_WPF_API.Windows
         {
             new AdminWindow().Show();
             this.Close();
+        }
+        private void BMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

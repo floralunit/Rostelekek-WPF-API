@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\App.xaml
-5-344120818
+6-881741350
 
-11-1537903661
+12441104052
 161080845566
-Windows\LoginWindow.xaml;MainWindow.xaml;Pages\ManagerPage.xaml;Windows\AdminWindow.xaml;Windows\WorkerWindow.xaml;
+Pages\EquipPage.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Pages\ManagerPage.xaml;Windows\AdminWindow.xaml;Windows\WorkerWindow.xaml;
 
-True
+False
 

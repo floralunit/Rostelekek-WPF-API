@@ -12,8 +12,57 @@ using System.Threading.Tasks;
 namespace Rostelekek_WPF_API
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    
+    public class Equip : INotifyPropertyChanged
+    {
+        private string _name { get; set; }
+        private string _price { get; set; }
+        private string _notes { get; set; }
+        public int id { get; set; }
+        public string name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("name"));
+            }
+        }
+        public string price
+        {
+            get { return _price; }
+            set
+            {
+                 _price = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("price"));
+            }
+        }
+        public string notes
+        {
+            get { return _notes; }
+            set
+            {
+                _notes = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("notes"));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-public class Worker :INotifyPropertyChanged
+        public void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, e);
+            }
+        }
+    }
+    public class Request
+    {
+        public string statusCode { get; set; }
+        public string message { get; set; }
+        public string error { get; set; }
+    }
+    public class Worker :INotifyPropertyChanged
     {
         private string _login { get; set; }
         private string _password { get; set; }
@@ -76,12 +125,7 @@ public class Worker :INotifyPropertyChanged
             }
         }
     }
-    public class Request
-    {
-        public string statusCode { get; set; }
-        public string message { get; set; }
-        public string error { get; set; }
-    }
+    
     class Worker1 :INotifyPropertyChanged
     {
         private string _login { get; set; }

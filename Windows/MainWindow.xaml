@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Rostelekek_WPF_API"
         mc:Ignorable="d"
      Title="MainWindow" 
-        Height="800" 
-        Width="1000"
+        Height="425" 
+        Width="600"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -39,10 +39,10 @@
                         Click="BClose_Click">🞪</Button>
             </StackPanel>
         </Grid>
-        <Grid Background="#fff2b2" Grid.Row="1">
+        <Grid Background="white" Grid.Row="1">
             <!--// Background Image //-->
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
-                <Frame Name="Frame" Source="Pages/ManagerPage.xaml" NavigationUIVisibility="Hidden"></Frame>
+                <Frame Name="Frame" Source="/Pages/ManagerPage.xaml" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
             <!--// App Close Button //-->
             <!--// Navigation Panel //-->
@@ -84,7 +84,7 @@
                                       Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">
                             <!--// Toggle button default background image //-->
                             <ToggleButton.Background>
-                                <ImageBrush ImageSource="Assets/tgBtn_default.png"
+                                <ImageBrush ImageSource="/Assets/tgBtn_default.png"
                                             Stretch="None"/>
                             </ToggleButton.Background>
                             <!--// Toggle Button - Checked, Unchecked events //-->
@@ -124,99 +124,61 @@
                                BorderBrush="Transparent"
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <!--// Home //-->
-                        <ListViewItem Name="LV_Alphabet" HorizontalAlignment="Left"
-                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Alphabet_PreviewMouseLeftButtonDown" 
-                                      >
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_alphabet.png"
-                                       Margin="7,0,0,0"/>
-                                <TextBlock Text="Фонограммы"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-                            <!--// Tooltip //-->
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_alphabet"
-                                         Content="Фонограммы"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
                         <!--// Contacts //-->
-                        <ListViewItem Name="LV_Dictionary" HorizontalAlignment="Left"
-                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_DictionaryPage_PreviewMouseLeftButtonDown"
+                        <ListViewItem Name="LV_Order" HorizontalAlignment="Left"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Order_PreviewMouseLeftButtonDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <Image Source="Assets/img_dictionary.png"
+                                <Image Source="/Assets/img_order.png"
                                        Margin="7,0,0,0"/>
-                                <TextBlock Text="Словарь"
+                                <TextBlock Text="Заказы"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
                             <!--// Tooltip //-->
                             <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_dictionary"
-                                         Content="Словарь"
+                                <ToolTip x:Name="tt_order"
+                                         Content="Заказы"
                                          Style="{StaticResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
                         <!--// Messages //-->
-                        <ListViewItem Name="LV_Pharaons" HorizontalAlignment="Left"
-                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Pharaons_PreviewMouseLeftButtonDown"
+                        <ListViewItem Name="LV_Equip" HorizontalAlignment="Left"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Equip_PreviewMouseLeftButtonDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <Image Source="/Assets/img_pharaoh.png"
+                                <Image Source="/Assets/img_equip.png"
                                        Margin="7,0,0,0"/>
-                                <TextBlock Text="Фараоны"
+                                <TextBlock Text="Оборудование"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
                             <!--// Tooltip //-->
                             <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_pharaon"
-                                         Content="Фараоны"
+                                <ToolTip x:Name="tt_equip"
+                                         Content="Оборудование"
                                          Style="{StaticResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
                         <!--// Maps //-->
-                        <ListViewItem Name="LV_Gods" HorizontalAlignment="Left"
-                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Gods_PreviewMouseLeftButtonDown"
+                        <ListViewItem Name="LV_Exit" HorizontalAlignment="Left"
+                                      Margin="0,100,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Exit_PreviewMouseLeftButtonDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <Image Source="/Assets/img_god.png"
+                                <Image Source="/Assets/img_logout.png"
                                        Margin="7,0,0,0"/>
 
-                                <TextBlock Text="Божества"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-                            <!--// Tooltip //-->
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_gods"
-                                         Content="Божества"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                   
-                        <ListViewItem Name="LV_Exit" HorizontalAlignment="Left" 
-                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Exit_PreviewMouseLeftButtonDown"
-                                      >
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="Assets/img_logout.png"
-                                       Margin="7,0,0,0"/>
-
-                                <TextBlock Text="Авторизация"
+                                <TextBlock Text="Выйти"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
                             <!--// Tooltip //-->
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_exit"
-                                         Content="Авторизация"
+                                         Content="Выйти"
                                          Style="{StaticResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>

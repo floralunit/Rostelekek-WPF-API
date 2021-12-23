@@ -7,48 +7,82 @@
         mc:Ignorable="d"
         Title="Управление сотрудниками Ростелекек" 
         Height="400"
-        Width="700"
-        ResizeMode="CanMinimize"  Loaded="AdminWindow_Loaded">
+        Width="600"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        MouseLeftButtonDown="MainWindow_MouseLeftButtonDown"
+        Background="#fff2b2"
+        Loaded="AdminWindow_Loaded">
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#033f63"
+             >
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Height="20"
+                        Width="20"
+                        FontWeight="Bold"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        Margin="0,0,5,0"
+                        Click="BMinimize_Click">—</Button>
+                <Button Height="20"
+                        Width="20"
+                        FontWeight="Bold"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        Click="BClose_Click">🞪</Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1">
             <Button Name="BExit" 
                     Padding="5"
                     Height="auto" 
                     HorizontalAlignment="Right"
                     Background="Transparent"
-                    Foreground="#28666e"
+                    BorderBrush="Transparent"
+                    Foreground="#033f63"
                     Click="BExit_Click" >Выйти</Button>
             <Button Name="BRestart" 
                     Padding="5"
                     Height="auto" 
                     HorizontalAlignment="Right"
                     Background="Transparent"
-                    Foreground="#28666e"
+                    BorderBrush="Transparent"
+                    Foreground="#033f63"
                     Click="BRestart_Click" >Обновить</Button>
             <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Управление сотрудниками Ростелекек</Label>
             <Button Name="BCreate" 
                     Margin="10" 
                     Background="Transparent"
-                    Foreground="#28666e"
+                    BorderBrush="Transparent"
+                    Foreground="#033f63"
                     Height="auto" 
                     HorizontalAlignment="Left"
                     Click="BCreate_Click" >Добавить нового сотрудника</Button>
             <ListView Name="LViewWorkers"
                               Height="150" 
-                              Background="Transparent"  
+                              Background="White"  
                               Margin="10,5,10,5"
+                      ItemsSource="{Binding}"
                       >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                         <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
-                        <Setter Property="BorderBrush" Value="Black"></Setter>
+                        <Setter Property="BorderBrush" Value="#28666e"></Setter>
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.View>
-                
-                <GridView AllowsColumnReorder="false">
+
+                    <GridView AllowsColumnReorder="false" >
 
                         <GridView.Columns>
                             <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
@@ -66,6 +100,7 @@
                      Padding="5,5,5,0"
                      Margin="10,0,10,0"
                      Background="Transparent"
+                     BorderBrush="Transparent"
                     Foreground="#28666e"
                     Height="auto" 
                                     Name="BEdit"
@@ -77,6 +112,7 @@
                       Background="Transparent"
                     Foreground="#28666e"
                     Height="auto" 
+                      BorderBrush="Transparent"
                                         Name="BDelete"
                                         Click="BDelete_Click" 
                                         Content="Удалить"></Button>

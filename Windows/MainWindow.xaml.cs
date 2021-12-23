@@ -35,17 +35,13 @@ namespace Rostelekek_WPF_API
 
             if (Tg_Btn.IsChecked == true)
             {
-                tt_alphabet.Visibility = Visibility.Collapsed;
-                tt_dictionary.Visibility = Visibility.Collapsed;
-                tt_pharaon.Visibility = Visibility.Collapsed;
-                tt_gods.Visibility = Visibility.Collapsed;
+                tt_order.Visibility = Visibility.Collapsed;
+                tt_equip.Visibility = Visibility.Collapsed;
             }
             else
             {
-                tt_alphabet.Visibility = Visibility.Visible;
-                tt_dictionary.Visibility = Visibility.Visible;
-                tt_pharaon.Visibility = Visibility.Visible;
-                tt_gods.Visibility = Visibility.Visible;
+                tt_order.Visibility = Visibility.Visible;
+                tt_equip.Visibility = Visibility.Visible;
             }
         }
 
@@ -69,38 +65,16 @@ namespace Rostelekek_WPF_API
             Close();
         }
 
-        private void LV_Alphabet_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LV_Order_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Frame.Source = new Uri("/Pages/AlphabetPage.xaml", UriKind.Relative);
+            Frame.Source = new Uri("/Pages/ManagerPage.xaml", UriKind.Relative);
         }
 
-        private void LV_DictionaryPage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LV_Equip_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Frame.Source = new Uri("/Pages/DictionaryPage.xaml", UriKind.Relative);
+            Frame.Source = new Uri("/Pages/EquipPage.xaml", UriKind.Relative);
         }
 
-        private void LV_Pharaons_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Frame.Source = new Uri("/Pages/PharaonPage.xaml", UriKind.Relative);
-        }
-
-        private void LV_Gods_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Frame.Source = new Uri("/Pages/GodsPage.xaml", UriKind.Relative);
-        }
-        private void LV_Profile_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (App.CurrentUser == null)
-            {
-                MessageBox.Show("Для входа в личный кабинет вам нужно авторизоваться!");
-                return;
-            }
-            else
-            {
-                //if (App.CurrentUser.RoleId == 1) Frame.Source = new Uri("/Pages/ProfileClientPage.xaml", UriKind.Relative);
-                //else if (App.CurrentUser.RoleId == 2) Frame.Source = new Uri("/Pages/ProfileTranslatorPage.xaml", UriKind.Relative);
-            }
-        }
         private void LV_Exit_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             new LoginWindow().Show();
