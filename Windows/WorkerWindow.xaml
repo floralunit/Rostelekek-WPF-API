@@ -44,19 +44,29 @@
         <ComboBox Name="CBPosition" Text="{Binding position}" Margin="8" Grid.Column="1" Grid.Row="4">
             <ComboBoxItem x:Name="CBManager" Content="Диспетчер"></ComboBoxItem>
             <ComboBoxItem x:Name="CBExecutor" Content="Исполнитель"></ComboBoxItem>
+            <ComboBoxItem x:Name="CBAdmin" Content="Администратор"></ComboBoxItem>
         </ComboBox>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2">
             <Button
+                Name="BCreate" 
+                Visibility="Collapsed"
                 Height="25"
                 Width="100"
                 Margin="10"
-                IsDefault="True" Click="Accept_Click">OK</Button>
+                IsDefault="True" Click="AcceptCreate_Click">Создать</Button>
+            <Button
+                Name="BEdit"
+                Visibility="Collapsed"
+                Height="25"
+                Width="100"
+                Margin="10"
+                IsDefault="True" Click="AcceptEdit_Click">OK</Button>
             <Button
                 Height="25"
                 Width="100"
                 Margin="10"
-                IsCancel="True">Отмена</Button>
+                IsCancel="True" Click="Button_Click">Отмена</Button>
         </StackPanel>
     </Grid>
 </Window>

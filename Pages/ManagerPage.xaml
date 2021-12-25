@@ -6,10 +6,176 @@
       xmlns:local="clr-namespace:Rostelekek_WPF_API.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MahagerPage">
+       Title="Управление сотрудниками Ростелекек" 
+        Height="400"
+        Width="600"
+        Background="Transparent"
+      Loaded="ManagerPage_Loaded">
 
     <Grid>
-        <Button x:Name="BtnReg" Content="Button" HorizontalAlignment="Left" Margin="197,130,0,0" VerticalAlignment="Top" Width="392" Height="177" Click="BtnReg_Click"/>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="215,342,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="74"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Заказ-наряды</Label>
+            <TabControl Margin="10">
+                <TabItem Header="Заказы">
+                    <StackPanel>
+                        <Button Name="BCreate" 
+                    Margin="10" 
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Foreground="#033f63"
+                    Height="auto" 
+                    HorizontalAlignment="Left"
+                    Click="BCreate_Click" >Отправить наряд</Button>
+                        <Grid Margin="15,5,15,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
+                            <TextBox Text="Покупатель"  Grid.Column="1" Style="{StaticResource headers_style}"/>
+                            <TextBox Text="Услуга"  Grid.Column="2" Style="{StaticResource headers_style}"/>
+                            <TextBox Text="Оборудование" Grid.Column="3" Style="{StaticResource headers_style}" />
+                            <TextBox Text="Дата заказа" Grid.Column="4" Style="{StaticResource headers_style}" />
+                            <TextBox Text="Конечная цена" Grid.Column="5" Style="{StaticResource headers_style}" />
+
+                        </Grid>
+                        <ListBox x:Name="orderList" 
+                     Height="150" 
+                              Background="White"  
+                              Margin="10,5,10,5"
+                     ItemsSource="{Binding}">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
+                                    <Setter Property="BorderBrush" Value="#28666e"></Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
+                                        <TextBox Text="{Binding id_customer}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
+                                        <TextBox Text="{Binding id_service}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
+                                        <TextBox Text="{Binding id_equip}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
+                                        <TextBox Text="{Binding date}" Grid.Column="4" Style="{StaticResource LVitems_style}" />
+                                        <TextBox Text="{Binding end_price}" Grid.Column="5" Style="{StaticResource LVitems_style}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Заказы в процессе">
+                    <StackPanel>
+                        <Grid Margin="15,5,15,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
+                            <TextBox Text="Название"  Grid.Column="1" Style="{StaticResource headers_style}"/>
+                            <TextBox Text="Цена"  Grid.Column="2" Style="{StaticResource headers_style}"/>
+                            <TextBox Text="Заметки" Grid.Column="3" Style="{StaticResource headers_style}" />
+                        </Grid>
+                        <ListBox x:Name="orderProcessList" 
+                     Height="150" 
+                              Background="White"  
+                              Margin="10,5,10,5"
+                     ItemsSource="{Binding}">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
+                                    <Setter Property="BorderBrush" Value="#28666e"></Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
+                                        <TextBox Text="{Binding name}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
+                                        <TextBox Text="{Binding price}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
+                                        <TextBox Text="{Binding notes}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Выполненные заказы">
+                    <StackPanel>
+                        <Grid Margin="15,5,15,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
+                            <TextBox Text="Название"  Grid.Column="1" Style="{StaticResource headers_style}"/>
+                            <TextBox Text="Цена"  Grid.Column="2" Style="{StaticResource headers_style}"/>
+                            <TextBox Text="Заметки" Grid.Column="3" Style="{StaticResource headers_style}" />
+                        </Grid>
+                        <ListBox x:Name="orderDoneList" 
+                     Height="150" 
+                              Background="White"  
+                              Margin="10,5,10,5"
+                     ItemsSource="{Binding}">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
+                                    <Setter Property="BorderBrush" Value="#28666e"></Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
+                                        <TextBox Text="{Binding name}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
+                                        <TextBox Text="{Binding price}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
+                                        <TextBox Text="{Binding notes}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
     </Grid>
 </Page>

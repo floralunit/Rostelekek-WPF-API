@@ -21,6 +21,7 @@ namespace Rostelekek_WPF_API.Windows
     /// <summary>
     /// Логика взаимодействия для AdminWindow.xaml
     /// </summary>
+    
     public partial class AdminWindow : Window
     {
         public AdminWindow()
@@ -61,6 +62,7 @@ namespace Rostelekek_WPF_API.Windows
         }
         private async void BDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (LViewWorkers.SelectedIndex == null) return;
             // получаем выделенный объект
             Worker worker = LViewWorkers.SelectedItem as Worker;
             int id = worker.id;
@@ -74,13 +76,32 @@ namespace Rostelekek_WPF_API.Windows
 
         private async void BCreate_Click(object sender, RoutedEventArgs e)
         {
-            //new WorkerWindow().Show();
-            
+            WorkerWindow workWindow = new WorkerWindow(new Worker());
+            workWindow.Show();
+
         }
         private void BExit_Click(object sender, RoutedEventArgs e)
         {
             new LoginWindow().Show();
             Close();
+        }
+
+        private void BRestart_Click(object sender, RoutedEventArgs e)
+        {
+            new AdminWindow().Show();
+            this.Close();
+        }
+        private void BMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

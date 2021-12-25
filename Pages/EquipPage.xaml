@@ -1,0 +1,94 @@
+﻿<Page x:Class="Rostelekek_WPF_API.Pages.EquipPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rostelekek_WPF_API.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+       Title="Управление сотрудниками Ростелекек" 
+        Height="400"
+        Width="600"
+        Background="Transparent"
+      Loaded="EquipPage_Loaded"
+      >
+    <Grid>
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="74"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Оборудование</Label>
+            <Button Name="BCreate" 
+                    Margin="10" 
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Foreground="#033f63"
+                    Height="auto" 
+                    HorizontalAlignment="Left"
+                    Click="BCreate_Click" >Добавить новое оборудование</Button>
+            <Grid Margin="15,5,15,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
+                <TextBox Text="Название"  Grid.Column="1" Style="{StaticResource headers_style}"/>
+                <TextBox Text="Цена"  Grid.Column="2" Style="{StaticResource headers_style}"/>
+                <TextBox Text="Заметки" Grid.Column="3" Style="{StaticResource headers_style}" />
+            </Grid>
+            <ListBox x:Name="equipList" 
+                     Height="150" 
+                              Background="White"  
+                              Margin="10,5,10,5"
+                     ItemsSource="{Binding}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
+                        <Setter Property="BorderBrush" Value="#28666e"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
+                            <TextBox Text="{Binding name}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
+                            <TextBox Text="{Binding price}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
+                            <TextBox Text="{Binding notes}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button  HorizontalAlignment="Left"
+                     Padding="5,5,5,0"
+                     Margin="10,0,10,0"
+                     Background="Transparent"
+                     BorderBrush="Transparent"
+                    Foreground="#28666e"
+                    Height="auto" 
+                                    Name="BEdit"
+                                    Click="BEdit_Click" 
+                                    Content="Редактировать"></Button>
+            <Button   HorizontalAlignment="Left"
+                      Padding="5,0,5,0"
+                      Margin="10,5,10,0"
+                      Background="Transparent"
+                    Foreground="#28666e"
+                    Height="auto" 
+                      BorderBrush="Transparent"
+                                        Name="BDelete"
+                                        Click="BDelete_Click" 
+                                        Content="Удалить"></Button>
+        </StackPanel>
+    </Grid>
+    </Page>

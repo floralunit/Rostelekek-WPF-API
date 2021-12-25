@@ -8,15 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/eye-of-horus.ico")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_alphabet.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_dictionary.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_god.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_login.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_logout.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_pharaoh.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_reg.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tgbtn_default.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tgbtn_mouseover.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/choices%20(1).png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/maintenance.png")]
 
 

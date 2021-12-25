@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Rostelekek_WPF_API"
        mc:Ignorable="d"
         Title="Авторизация" 
-        Height="500" 
-        Width="700"
+        Height="300" 
+        Width="400"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -24,12 +24,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid Background="#033f63"
               Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal"
@@ -50,10 +45,6 @@
                         Foreground="white"
                         Click="BClose_Click">🞪</Button>
             </StackPanel>
-        </Grid>
-        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="7">
-            <Image Source="/Assets/img_login.jpg"
-                   VerticalAlignment="Center" Height="732" Margin="0,-126,0.4,81.2"/>
         </Grid>
         <Label 
             FontSize="24"
@@ -94,14 +85,5 @@
                Margin="25,25,25,0"
                 Content="Войти"
                 Click="BLogin_Click"/>
-        <Button Grid.Column="1" 
-                Grid.Row="7" 
-                Background="white"
-                Foreground="#28666e"
-                BorderBrush="#28666e"
-                Height="35" 
-                Margin="25,5,25,300"
-                Content="Зарегистрироваться" 
-                />
     </Grid>
 </Window>

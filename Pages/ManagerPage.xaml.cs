@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,24 +30,31 @@ namespace Rostelekek_WPF_API.Pages
             InitializeComponent();
 
         }
-        private async void BtnReg_Click(object sender, RoutedEventArgs e)
+        private async void ManagerPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            var client = new HttpClient();
+            HttpResponseMessage response = new HttpResponseMessage();
+            var uri = new Uri("https://rostelekek.herokuapp.com/order");
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            response = await client.GetAsync(uri);
+            string json = response.Content.ReadAsStringAsync().Result;
+            JArray o = JArray.Parse(json);
+            JArray ob = JArray.Parse(o.ToString());
+            var pipa = JsonConvert.DeserializeObject<List<Order>>(ob.ToString());
+            orderList.ItemsSource = pipa.ToList();
+
+        }
+        private void BEdit_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private async void BDelete_Click(object sender, RoutedEventArgs e)
+        {
 
-            //// Account account = JsonConvert.DeserializeObject<Account>(json);
-            //// james@example.com
-            //var client = new HttpClient();
-            //HttpResponseMessage response = new HttpResponseMessage();
-            //var uri = new Uri("https://artartwebapp.herokuapp.com/event");
-            //response = await client.GetAsync(uri);
-            //string json = response.Content.ReadAsStringAsync().Result;
-            //JArray o = JArray.Parse(json);
-            //JArray ob = JArray.Parse(o[0].ToString());
-            //var pipa = JsonConvert.DeserializeObject<List<Art>>(ob.ToString());
-            //label.Content = pipa[1].description;
-            //Console.WriteLine(pipa[1].description);
-            ////var pupa = JsonConvert.DeserializeObject<Art>(pipa.MyArray[0]);
-            ////label.Content = pupa.title;
+        }
+
+        private async void BCreate_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
