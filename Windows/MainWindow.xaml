@@ -42,7 +42,7 @@
         <Grid Background="white" Grid.Row="1">
             <!--// Background Image //-->
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
-                <Frame Name="Frame" Source="/Pages/ManagerPage.xaml" NavigationUIVisibility="Hidden"></Frame>
+                <Frame Name="Frame" Source="/Pages/AdminPage.xaml" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
             <!--// App Close Button //-->
             <!--// Navigation Panel //-->
@@ -125,21 +125,21 @@
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <!--// Home //-->
                         <!--// Contacts //-->
-                        <ListViewItem Name="LV_Order" HorizontalAlignment="Left"
-                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Order_PreviewMouseLeftButtonDown"
+                        <ListViewItem Name="LV_Admin" HorizontalAlignment="Left"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Admin_PreviewMouseLeftButtonDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="/Assets/img_order.png"
                                        Margin="7,0,0,0"/>
-                                <TextBlock Text="Заказы"
+                                <TextBlock Text="Сотрудники"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
                             <!--// Tooltip //-->
                             <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_order"
-                                         Content="Заказы"
+                                <ToolTip x:Name="tt_admin"
+                                         Content="Сотрудники"
                                          Style="{StaticResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>

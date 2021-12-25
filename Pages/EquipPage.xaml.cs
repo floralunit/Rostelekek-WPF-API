@@ -50,7 +50,7 @@ namespace Rostelekek_WPF_API.Pages
             // получаем выделенный объект
             Equip equip = equipList.SelectedItem as Equip;
 
-            EquipWindow equipWindow = new EquipWindow(equip.id);
+            EquipAddWindow equipWindow = new EquipAddWindow(equip.id);
             equipWindow.Show();
 
 
@@ -71,7 +71,7 @@ namespace Rostelekek_WPF_API.Pages
 
         private async void BCreate_Click(object sender, RoutedEventArgs e)
         {
-            EquipWindow equipWindow = new EquipWindow(-1);
+            EquipAddWindow equipWindow = new EquipAddWindow(-1);
             equipWindow.Show();
 
         }

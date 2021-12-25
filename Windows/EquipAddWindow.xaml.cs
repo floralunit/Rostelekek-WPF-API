@@ -20,10 +20,10 @@ namespace Rostelekek_WPF_API.Windows
     /// <summary>
     /// Логика взаимодействия для EquipWindow.xaml
     /// </summary>
-    public partial class EquipWindow : Window
+    public partial class EquipAddWindow : Window
     {
         int id;
-        public EquipWindow(int _id)
+        public EquipAddWindow(int _id)
         {
             InitializeComponent();
             id = _id;

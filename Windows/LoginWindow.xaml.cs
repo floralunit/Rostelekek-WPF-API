@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Rostelekek_WPF_API.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,16 +29,23 @@ namespace Rostelekek_WPF_API
             InitializeComponent();
         }
 
-        private void BLogin_Click(object sender, RoutedEventArgs e)
+        private async void BLogin_Click(object sender, RoutedEventArgs e)
         {
-            //db = new ApplicationContext();
-            //db.Users.Load();
-            //var currentUser = db.Users.FirstOrDefault(p => p.Id == TBLogin.Text && p.Password == PBPassword.Password);
             //if (TBLogin.Text == "" || PBPassword.Password == "")
             //{
             //    MessageBox.Show("Пустые поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             //    return;
             //}
+            //var client = new HttpClient();
+            //HttpResponseMessage response = new HttpResponseMessage();
+            //var uri = new Uri("https://rostelekek.herokuapp.com/worker");
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //response = await client.GetAsync(uri);
+            //string json = response.Content.ReadAsStringAsync().Result;
+            //JArray o = JArray.Parse(json);
+            //JArray ob = JArray.Parse(o.ToString());
+            //var pipa = JsonConvert.DeserializeObject<List<Worker>>(ob.ToString());
+            //var currentUser = pipa.FirstOrDefault(p => p.login == TBLogin.Text && p.password == PBPassword.Password);
             //if (currentUser != null)
             //{
             //    App.CurrentUser = currentUser;
@@ -46,9 +58,12 @@ namespace Rostelekek_WPF_API
             //    MessageBox.Show("Пользователь с такими данными не найден.", "Ошибка",
             //        MessageBoxButton.OK, MessageBoxImage.Error);
             //}
+            if (TBLogin.Text == "a") new MainWindow().Show();
+            if (TBLogin.Text == "m") new ManagerWindow().Show();
+            //if (TBLogin.Text == "w") new MainWindow().Show();
+            if (TBLogin.Text == "") return;
+            Close();
         }
-
-
         private void BMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -60,6 +75,11 @@ namespace Rostelekek_WPF_API
         private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

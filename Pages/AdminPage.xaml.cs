@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -14,22 +12,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Rostelekek_WPF_API.Windows;
 
-namespace Rostelekek_WPF_API.Windows
+
+namespace Rostelekek_WPF_API.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AdminWindow.xaml
+    /// Логика взаимодействия для MahagerPage.xaml
     /// </summary>
-    
-    public partial class AdminWindow : Window
+    public partial class AdminPage : Page
     {
-        public AdminWindow()
+        public AdminPage()
         {
             InitializeComponent();
 
         }
-        private async void AdminWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void AdminPage_Loaded(object sender, RoutedEventArgs e)
         {
             var client = new HttpClient();
             HttpResponseMessage response = new HttpResponseMessage();
@@ -48,7 +50,7 @@ namespace Rostelekek_WPF_API.Windows
             // получаем выделенный объект
             Worker worker = LViewWorkers.SelectedItem as Worker;
 
-            WorkerWindow workWindow = new WorkerWindow(new Worker
+            WorkerAddWindow workWindow = new WorkerAddWindow(new Worker
             {
                 id = worker.id,
                 name = worker.name,
@@ -76,32 +78,9 @@ namespace Rostelekek_WPF_API.Windows
 
         private async void BCreate_Click(object sender, RoutedEventArgs e)
         {
-            WorkerWindow workWindow = new WorkerWindow(new Worker());
+            WorkerAddWindow workWindow = new WorkerAddWindow(new Worker());
             workWindow.Show();
 
-        }
-        private void BExit_Click(object sender, RoutedEventArgs e)
-        {
-            new LoginWindow().Show();
-            Close();
-        }
-
-        private void BRestart_Click(object sender, RoutedEventArgs e)
-        {
-            new AdminWindow().Show();
-            this.Close();
-        }
-        private void BMinimize_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-        private void BClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-        private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
     }
 }

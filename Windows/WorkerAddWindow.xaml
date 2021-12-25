@@ -1,11 +1,10 @@
-﻿<Window x:Class="Rostelekek_WPF_API.Windows.EquipWindow"
+﻿<Window x:Class="Rostelekek_WPF_API.Windows.WorkerAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rostelekek_WPF_API.Windows"
-        mc:Ignorable="d"
-      Title="Добавление/  Редактирование оборудования" Height="300" Width="600"
+        Title="Добавление/  Редактирование сотрудников" Height="400" Width="600"
          ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         FontFamily="Segoe UI Historic"
@@ -25,18 +24,28 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Название" />
-        <TextBlock Text="Цена" Grid.Row="1" />
-        <TextBlock Text="Заметки" Grid.Row="2" />
+        <TextBlock Text="Логин" />
+        <TextBlock Text="Пароль" Grid.Row="1" />
+        <TextBlock Text="Имя" Grid.Row="2" />
+        <TextBlock Text="Опыт работы" Grid.Row="3" />
+        <TextBlock Text="Должность" Grid.Row="4" />
 
-        <TextBox Name="TBName" Text="{Binding Name}" Grid.Column="1" />
-        <TextBox Name="TBPrice" Text="{Binding Price}" Grid.Column="1" Grid.Row="1" />
-        <TextBox Name="TBNotes" Text="{Binding Notes}" Grid.Column="1" Grid.Row="2" />
+        <TextBox Name="TBLogin" Text="{Binding login}" Grid.Column="1" />
+        <TextBox Name="TBPassword" Text="{Binding password}" Grid.Column="1" Grid.Row="1" />
+        <TextBox Name="TBName" Text="{Binding name}" Grid.Column="1" Grid.Row="2" />
+        <TextBox Name="TBExperience" Text="{Binding experience}" Grid.Column="1" Grid.Row="3" />
+        <ComboBox Name="CBPosition" Text="{Binding position}" Margin="8" Grid.Column="1" Grid.Row="4">
+            <ComboBoxItem x:Name="CBManager" Content="Диспетчер"></ComboBoxItem>
+            <ComboBoxItem x:Name="CBExecutor" Content="Исполнитель"></ComboBoxItem>
+            <ComboBoxItem x:Name="CBAdmin" Content="Администратор"></ComboBoxItem>
+        </ComboBox>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2">
             <Button

@@ -27,12 +27,10 @@ C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\Rostelekek-WPF-API.
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\Newtonsoft.Json.dll
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\Newtonsoft.Json.xml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.csprojAssemblyReference.cache
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\ManagerPage.g.cs
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\App.g.cs
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API_MarkupCompile.cache
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API_MarkupCompile.lref
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\App.baml
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\ManagerPage.baml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.g.resources
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek_WPF_API.Properties.Resources.resources
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.csproj.GenerateResource.cache
@@ -40,8 +38,6 @@ C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.csproj.CopyComplete
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.exe
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Rostelekek-WPF-API.pdb
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\AdminWindow.g.cs
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\AdminWindow.baml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\LoginWindow.g.cs
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\LoginWindow.baml
 C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\WorkerWindow.g.cs
@@ -87,3 +83,14 @@ C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\MainWi
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\EquipWindow.g.cs
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\EquipWindow.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\AdminPage.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ManagerWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\AdminPage.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ManagerWindow.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\EquipAddWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ActAddWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\WorkerAddWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\EquipAddWindow.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ActAddWindow.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\WorkerAddWindow.baml

@@ -35,12 +35,12 @@ namespace Rostelekek_WPF_API
 
             if (Tg_Btn.IsChecked == true)
             {
-                tt_order.Visibility = Visibility.Collapsed;
+                tt_admin.Visibility = Visibility.Collapsed;
                 tt_equip.Visibility = Visibility.Collapsed;
             }
             else
             {
-                tt_order.Visibility = Visibility.Visible;
+                tt_admin.Visibility = Visibility.Visible;
                 tt_equip.Visibility = Visibility.Visible;
             }
         }
@@ -65,9 +65,9 @@ namespace Rostelekek_WPF_API
             Close();
         }
 
-        private void LV_Order_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LV_Admin_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Frame.Source = new Uri("/Pages/ManagerPage.xaml", UriKind.Relative);
+            Frame.Source = new Uri("/Pages/AdminPage.xaml", UriKind.Relative);
         }
 
         private void LV_Equip_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

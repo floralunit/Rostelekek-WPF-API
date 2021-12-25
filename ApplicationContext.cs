@@ -12,12 +12,21 @@ using System.Threading.Tasks;
 namespace Rostelekek_WPF_API
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    public class Work_Act
+    {
+        public int id { get; set; }
+        public int id_order { get; set; }
+        public int id_worker { get; set; }
+        public string state { get; set; }
+        public string start_date { get; set; }
+        public string finish_date { get; set; }
+    }
     public class Order
     {
         public int id { get; set; }
-        public int customer_id { get; set; }
-        public int service_id { get; set; }
-        public int equip_id { get; set; }
+        public int id_customer { get; set; }
+        public int id_service { get; set; }
+        public int id_equip { get; set; }
         public string end_price { get; set; }
         public string date { get; set; }
     }

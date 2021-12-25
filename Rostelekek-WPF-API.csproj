@@ -93,11 +93,17 @@
     <Compile Include="Pages\EquipPage.xaml.cs">
       <DependentUpon>EquipPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AdminWindow.xaml.cs">
-      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    <Compile Include="Windows\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EquipWindow.xaml.cs">
-      <DependentUpon>EquipWindow.xaml</DependentUpon>
+    <Compile Include="Windows\EquipAddWindow.xaml.cs">
+      <DependentUpon>EquipAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ActAddWindow.xaml.cs">
+      <DependentUpon>ActAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WorkerAddWindow.xaml.cs">
+      <DependentUpon>WorkerAddWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WorkerWindow.xaml.cs">
       <DependentUpon>WorkerWindow.xaml</DependentUpon>
@@ -106,7 +112,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EquipWindow.xaml">
+    <Page Include="Windows\EquipAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,11 +136,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\ManagerPage.xaml">
+    <Page Include="Pages\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\AdminWindow.xaml">
+    <Page Include="Windows\ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ActAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WorkerAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,8 +158,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\ManagerPage.xaml.cs">
-      <DependentUpon>ManagerPage.xaml</DependentUpon>
+    <Compile Include="Pages\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

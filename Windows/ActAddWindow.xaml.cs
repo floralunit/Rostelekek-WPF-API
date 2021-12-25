@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Rostelekek_WPF_API.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для WorkerWindow.xaml
+    /// Логика взаимодействия для WorkActWindow.xaml
     /// </summary>
-    public partial class WorkerWindow : Window
+    public partial class WorkActWindow : Window
     {
-        public WorkerWindow()
+        public WorkActWindow()
         {
             InitializeComponent();
         }
