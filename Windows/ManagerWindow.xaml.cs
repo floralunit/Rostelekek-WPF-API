@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Rostelekek_WPF_API.Windows;
 
 namespace Rostelekek_WPF_API.Windows
 {
@@ -31,43 +32,46 @@ namespace Rostelekek_WPF_API.Windows
         }
         private async void ManagerWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //var client = new HttpClient();
-            //HttpResponseMessage response = new HttpResponseMessage();
-            //var uri = new Uri("https://rostelekek.herokuapp.com/order");
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            //response = await client.GetAsync(uri);
-            //string json = response.Content.ReadAsStringAsync().Result;
-            //JArray o = JArray.Parse(json);
-            //JArray ob = JArray.Parse(o.ToString());
-            //var pipa = JsonConvert.DeserializeObject<List<Order>>(ob.ToString());
-            //orderList.ItemsSource = pipa.ToList();
+            try
+            {
+                var client = new HttpClient();
+                HttpResponseMessage response = new HttpResponseMessage();
+                var uri = new Uri("https://rostelekek.herokuapp.com/order");
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                response = await client.GetAsync(uri);
+                string json = response.Content.ReadAsStringAsync().Result;
+                JArray o = JArray.Parse(json);
+                JArray ob = JArray.Parse(o.ToString());
+                var pipa = JsonConvert.DeserializeObject<List<Order>>(ob.ToString());
+                orderList.ItemsSource = pipa.ToList();
 
+                uri = new Uri("https://rostelekek.herokuapp.com/work-act");
+                response = await client.GetAsync(uri);
+                json = response.Content.ReadAsStringAsync().Result;
+                o = JArray.Parse(json);
+                ob = JArray.Parse(o.ToString());
+                var pipa1 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
+                orderProcessList.ItemsSource = pipa1.Where(p => p.state != "Завершен").ToList();
 
-            //var client = new HttpClient();
-            //HttpResponseMessage response = new HttpResponseMessage();
-            //var uri = new Uri("https://rostelekek.herokuapp.com/work-act");
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            //response = await client.GetAsync(uri);
-            //string json = response.Content.ReadAsStringAsync().Result;
-            //JArray o = JArray.Parse(json);
-            //JArray ob = JArray.Parse(o.ToString());
-            //var pipa = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
-            //orderProcessList.ItemsSource = pipa.ToList();
+                var pipa2 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
+                orderDoneList.ItemsSource = pipa2.Where(p => p.state == "Завершен").ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Данные отсутствуют");
+            }
 
-            //uri = new Uri("https://rostelekek.herokuapp.com/WorkAct");
-            //response = await client.GetAsync(uri);
-            //json = response.Content.ReadAsStringAsync().Result;
-            //JArray o1 = JArray.Parse(json);
-            //JArray ob1 = JArray.Parse(o1.ToString());
-            //var pipa1 = JsonConvert.DeserializeObject<List<Work_Act>>(ob1.ToString());
-            //orderProcessList.ItemsSource = pipa1.ToList();
-            //orderDoneList.ItemsSource = pipa1.ToList();
 
         }
 
         private async void BCreate_Click(object sender, RoutedEventArgs e)
         {
+            if (orderList.SelectedItem == null) return;
+            // получаем выделенный объект
+            Order order = orderList.SelectedItem as Order;
 
+            ActAddWindow orderWindow = new ActAddWindow(order.id);
+            orderWindow.Show();
         }
         private void BExit_Click(object sender, RoutedEventArgs e)
         {

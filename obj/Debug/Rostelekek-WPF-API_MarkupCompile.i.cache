@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\
+C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\
 Rostelekek_WPF_API
 none
 false
 DEBUG;TRACE
-C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\App.xaml
-91143981385
+C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\App.xaml
+12906302206
 
-16-589714059
-20-1915497580
-Pages\EquipPage.xaml;Windows\EquipAddWindow.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Pages\AdminPage.xaml;Windows\ManagerWindow.xaml;Windows\ActAddWindow.xaml;Windows\WorkerAddWindow.xaml;Windows\WorkerWindow.xaml;
+19755558923
+20-1564682298
+Pages\EquipPage.xaml;Pages\ServicePage.xaml;Windows\ActEditWindow.xaml;Windows\EquipAddWindow.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Pages\AdminPage.xaml;Windows\ManagerWindow.xaml;Windows\ActAddWindow.xaml;Windows\ServiceAddWindow.xaml;Windows\WorkerAddWindow.xaml;Windows\WorkerWindow.xaml;
 
 True
 

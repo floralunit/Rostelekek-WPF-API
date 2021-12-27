@@ -16,7 +16,10 @@ namespace Rostelekek_WPF_API
     {
         public int id { get; set; }
         public int id_order { get; set; }
+        public string service { get; set; }
+        public string equipment { get; set; }
         public int id_worker { get; set; }
+        public string worker { get; set; }
         public string state { get; set; }
         public string start_date { get; set; }
         public string finish_date { get; set; }
@@ -25,8 +28,11 @@ namespace Rostelekek_WPF_API
     {
         public int id { get; set; }
         public int id_customer { get; set; }
+        public string customer { get; set; }
         public int id_service { get; set; }
+        public string service { get; set; }
         public int id_equip { get; set; }
+        public string equipment { get; set; }
         public string end_price { get; set; }
         public string date { get; set; }
     }

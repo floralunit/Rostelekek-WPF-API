@@ -60,9 +60,9 @@ namespace Rostelekek_WPF_API
             //}
             if (TBLogin.Text == "a") new MainWindow().Show();
             if (TBLogin.Text == "m") new ManagerWindow().Show();
-            //if (TBLogin.Text == "w") new MainWindow().Show();
+            if (TBLogin.Text == "w") new WorkerWindow().Show();
             if (TBLogin.Text == "") return;
-            Close();
+            this.Close();
         }
         private void BMinimize_Click(object sender, RoutedEventArgs e)
         {
