@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Rostelekek_WPF_API.Windows"
         mc:Ignorable="d"
         Title="Управление сотрудниками Ростелекек" 
-        Height="450"
-        Width="600"
+        Height="600"
+        Width="700"
          ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -59,7 +59,8 @@
                     Foreground="#033f63"
                     Click="BRestart_Click" >Обновить</Button>
             <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Заказ-наряды</Label>
-            <TabControl Margin="10">
+            <TabControl Margin="10"
+                        Height="400">
                 <TabItem Header="Заказы">
                     <StackPanel>
                         <Button Name="BCreate" 
@@ -70,164 +71,104 @@
                     Height="auto" 
                     HorizontalAlignment="Left"
                     Click="BCreate_Click" >Отправить наряд</Button>
-                        <Grid Margin="15,5,15,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Покупатель"  Grid.Column="1" Style="{StaticResource headers_style}"/>
-                            <TextBox Text="Услуга"  Grid.Column="2" Style="{StaticResource headers_style}"/>
-                            <TextBox Text="Оборудование" Grid.Column="3" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Дата заказа" Grid.Column="4" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Конечная цена" Grid.Column="5" Style="{StaticResource headers_style}" />
-
-                        </Grid>
-                        <ListBox x:Name="orderList" 
-                     Height="150" 
+                        <ListView Name="orderList" 
+                              Height="350" 
                               Background="White"  
                               Margin="10,5,10,5"
-                     ItemsSource="{Binding}">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
+                      ItemsSource="{Binding}"
+                      >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                     <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                                     <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
                                     <Setter Property="BorderBrush" Value="#28666e"></Setter>
                                 </Style>
-                            </ListBox.ItemContainerStyle>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding id_customer}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
-                                        <TextBox Text="{Binding id_service}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
-                                        <TextBox Text="{Binding id_equip}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding date}" Grid.Column="4" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding end_price}" Grid.Column="5" Style="{StaticResource LVitems_style}" />
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView AllowsColumnReorder="false">
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Покупатель" CellTemplate="{StaticResource customerTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Услуга" CellTemplate="{StaticResource serviceTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Оборудование" CellTemplate="{StaticResource equipTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Дата заказа" CellTemplate="{StaticResource dateTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Конечная цена" CellTemplate="{StaticResource priceEndTemplate}"></GridViewColumn>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+
+                        </ListView>
+
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Заказы в процессе">
                     <StackPanel>
-                        <Grid Margin="15,5,15,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Номер заказа"  Grid.Column="1" Style="{StaticResource headers_style}"/>
-                            <TextBox Text="Исполнитель"  Grid.Column="2" Style="{StaticResource headers_style}"/>
-                            <TextBox Text="Начало работы" Grid.Column="3" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Состояние" Grid.Column="4" Style="{StaticResource headers_style}" />
-                        </Grid>
-                        <ListBox x:Name="orderProcessList" 
-                     Height="150" 
+                        <ListView Name="orderProcessList" 
+                              Height="350" 
                               Background="White"  
                               Margin="10,5,10,5"
-                     ItemsSource="{Binding}">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
+                      ItemsSource="{Binding}"
+                      >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                     <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                                     <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
                                     <Setter Property="BorderBrush" Value="#28666e"></Setter>
                                 </Style>
-                            </ListBox.ItemContainerStyle>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding id_order}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
-                                        <TextBox Text="{Binding id_worker}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
-                                        <TextBox Text="{Binding start_date}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding state}" Grid.Column="4" Style="{StaticResource LVitems_style}" />
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView AllowsColumnReorder="false">
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Номер заказа" CellTemplate="{StaticResource orderTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Исполнитель" CellTemplate="{StaticResource workerTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Начало работы" CellTemplate="{StaticResource startdateTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Состояние" CellTemplate="{StaticResource stateTemplate}"></GridViewColumn>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+
+                        </ListView>
+                       
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Выполненные заказы">
                     <StackPanel>
-                        <Grid Margin="15,5,15,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Номер заказа"  Grid.Column="1" Style="{StaticResource headers_style}"/>
-                            <TextBox Text="Исполнитель"  Grid.Column="2" Style="{StaticResource headers_style}"/>
-                            <TextBox Text="Начало работы" Grid.Column="3" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Конец работы" Grid.Column="3" Style="{StaticResource headers_style}" />
-                            <TextBox Text="Состояние" Grid.Column="4" Style="{StaticResource headers_style}" />
-                        </Grid>
-                        <ListBox x:Name="orderDoneList" 
-                     Height="150" 
+                        <ListView Name="orderDoneList" 
+                              Height="350" 
                               Background="White"  
                               Margin="10,5,10,5"
-                     ItemsSource="{Binding}">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
+                      ItemsSource="{Binding}"
+                      >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                     <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                                     <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
                                     <Setter Property="BorderBrush" Value="#28666e"></Setter>
                                 </Style>
-                            </ListBox.ItemContainerStyle>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding id_order}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
-                                        <TextBox Text="{Binding id_worker}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
-                                        <TextBox Text="{Binding start_date}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding finish_date}" Grid.Column="4" Style="{StaticResource LVitems_style}" />
-                                        <TextBox Text="{Binding state}" Grid.Column="5" Style="{StaticResource LVitems_style}" />
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView AllowsColumnReorder="false">
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Номер заказа" CellTemplate="{StaticResource orderTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Исполнитель" CellTemplate="{StaticResource workerTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Начало работы" CellTemplate="{StaticResource startdateTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Конец работы" CellTemplate="{StaticResource enddateTemplate}"></GridViewColumn>
+                                        <GridViewColumn Header="Состояние" CellTemplate="{StaticResource stateTemplate}"></GridViewColumn>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+
+                        </ListView>
                     </StackPanel>
                 </TabItem>
             </TabControl>
+            <Image Source="/Assets/rostelekek.png" Width="64" HorizontalAlignment="Right"
+                                       Margin="7,0,0,0"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -93,12 +93,6 @@
     <Compile Include="Pages\EquipPage.xaml.cs">
       <DependentUpon>EquipPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ServicePage.xaml.cs">
-      <DependentUpon>ServicePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ActEditWindow.xaml.cs">
-      <DependentUpon>ActEditWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
@@ -108,8 +102,8 @@
     <Compile Include="Windows\ActAddWindow.xaml.cs">
       <DependentUpon>ActAddWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ServiceAddWindow.xaml.cs">
-      <DependentUpon>ServiceAddWindow.xaml</DependentUpon>
+    <Compile Include="Windows\StateAddWindow.xaml.cs">
+      <DependentUpon>StateAddWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WorkerAddWindow.xaml.cs">
       <DependentUpon>WorkerAddWindow.xaml</DependentUpon>
@@ -118,14 +112,6 @@
       <DependentUpon>WorkerWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\EquipPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ServicePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ActEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ServiceAddWindow.xaml">
+    <Page Include="Windows\StateAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +215,9 @@
   <ItemGroup>
     <Resource Include="Assets\img_order.png" />
     <Resource Include="Assets\img_equip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\rostelekek.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

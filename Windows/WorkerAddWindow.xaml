@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="Segoe UI Historic"
         FontSize="16"
-        Background="#fff2b2">
+        Background="white">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="8" />

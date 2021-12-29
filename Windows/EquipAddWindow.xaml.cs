@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -47,35 +48,73 @@ namespace Rostelekek_WPF_API.Windows
 
         private async void AcceptCreate_Click(object sender, RoutedEventArgs e)
         {
-            var equip = new CreateEquipmentDto()
-            {
-                Name = TBName.Text,
-                Price = Convert.ToDouble(TBPrice.Text),
-                Notes = TBNotes.Text
-            };
+            //var equip = new CreateEquipmentDto()
+            //{
+            //    Name = TBName.Text,
+            //    Price = Convert.ToDouble(TBPrice.Text),
+            //    Notes = TBNotes.Text
+            //};
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //var httpClient = new HttpClient();
+            //var url = "https://rostelekek.herokuapp.com";
+            //var client = new EquipmentControllerClient(url, httpClient);
+            //var _equip = client.CreateAsync(equip);
+            //MessageBox.Show("Оборудование успешно добавлено");
+            //Close();
+            var client = new HttpClient();
+            var equip = new Equip1();
+            equip.name = TBName.Text;
+            equip.price = Convert.ToInt32(TBPrice.Text);
+            equip.notes = TBNotes.Text;
+
+            var json1 = JsonConvert.SerializeObject(equip);
+            var data = new StringContent(json1, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            var uri = new Uri("https://rostelekek.herokuapp.com/equipment");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            var httpClient = new HttpClient();
-            var url = "https://rostelekek.herokuapp.com";
-            var client = new EquipmentControllerClient(url, httpClient);
-            var _equip = client.CreateAsync(equip);
-            MessageBox.Show("Оборудование успешно добавлено");
+            response = await client.PostAsync(uri, data);
+            var json = response.Content.ReadAsStringAsync().Result;
+            MessageBox.Show(json.ToString());
             Close();
         }
         private async void AcceptEdit_Click(object sender, RoutedEventArgs e)
         {
-            var equip = new UpdateEquipmentDto(){ 
-                Name = TBName.Text,
-                Price = Convert.ToDouble(TBPrice.Text),
-                Notes = TBNotes.Text
-            };
+            //var equip = new UpdateEquipmentDto()
+            //{
+            //    Name = TBName.Text,
+            //    Price = Convert.ToDouble(TBPrice.Text),
+            //    Notes = TBNotes.Text
+            //};
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //var httpClient = new HttpClient();
+            //var url = "https://rostelekek.herokuapp.com";
+            //var client = new EquipmentControllerClient(url, httpClient);
+            //var _equip = client.UpdateAsync(id, equip);
+            //MessageBox.Show("Информация успешно обновлена");
+            //Close();
+            var client = new HttpClient();
+            var equip = new Equip1();
+            equip.name = TBName.Text;
+            equip.price = Convert.ToInt32(TBPrice.Text);
+            equip.notes = TBNotes.Text;
+
+            var json1 = JsonConvert.SerializeObject(equip);
+            var data = new StringContent(json1, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = new HttpResponseMessage();
+            var uri = new Uri(String.Format("https://rostelekek.herokuapp.com/worker/" + id));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            var httpClient = new HttpClient();
-            var url = "https://rostelekek.herokuapp.com";
-            var client = new EquipmentControllerClient(url, httpClient);
-            var _equip = client.UpdateAsync(id, equip);
-            MessageBox.Show("Информация успешно обновлена");
+
+            var method = new HttpMethod("PATCH");
+            var request = new HttpRequestMessage(method, uri)
+            {
+                Content = data
+            };
+            MessageBox.Show(request.ToString());
+            response = await client.SendAsync(request);
+            var json = response.Content.ReadAsStringAsync().Result;
+            MessageBox.Show(json.ToString());
             Close();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

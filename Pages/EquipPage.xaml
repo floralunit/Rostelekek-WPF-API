@@ -18,7 +18,8 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Оборудование</Label>
+            <Label Name="label" Margin="0,10,0,0" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Оборудование</Label>
+
             <Button Name="BCreate" 
                     Margin="10" 
                     Background="Transparent"
@@ -27,48 +28,32 @@
                     Height="auto" 
                     HorizontalAlignment="Left"
                     Click="BCreate_Click" >Добавить новое оборудование</Button>
-            <Grid Margin="15,5,15,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBox Text="Номер" Grid.Column="0" Style="{StaticResource headers_style}" />
-                <TextBox Text="Название"  Grid.Column="1" Style="{StaticResource headers_style}"/>
-                <TextBox Text="Цена"  Grid.Column="2" Style="{StaticResource headers_style}"/>
-                <TextBox Text="Заметки" Grid.Column="3" Style="{StaticResource headers_style}" />
-            </Grid>
-            <ListBox x:Name="equipList" 
-                     Height="150" 
+            <ListView Name="equipList" 
+                              Height="200" 
                               Background="White"  
                               Margin="10,5,10,5"
-                     ItemsSource="{Binding}">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
+                      ItemsSource="{Binding}"
+                      >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                         <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
                         <Setter Property="BorderBrush" Value="#28666e"></Setter>
                     </Style>
-                </ListBox.ItemContainerStyle>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Text="{Binding id}" Grid.Column="0" Style="{StaticResource LVitems_style}" />
-                            <TextBox Text="{Binding name}"  Grid.Column="1" Style="{StaticResource LVitems_style}"/>
-                            <TextBox Text="{Binding price}"  Grid.Column="2" Style="{StaticResource LVitems_style}"/>
-                            <TextBox Text="{Binding notes}" Grid.Column="3" Style="{StaticResource LVitems_style}" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView AllowsColumnReorder="false">
+                        <GridView.Columns>
+                            <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Название" CellTemplate="{StaticResource nameTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Цена" CellTemplate="{StaticResource priceTemplate}"></GridViewColumn>
+                            <GridViewColumn Header="Заметки" CellTemplate="{StaticResource notesTemplate}"></GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
             <Button  HorizontalAlignment="Left"
                      Padding="5,5,5,0"
                      Margin="10,0,10,0"
@@ -89,6 +74,8 @@
                                         Name="BDelete"
                                         Click="BDelete_Click" 
                                         Content="Удалить"></Button>
+            <Image Source="/Assets/rostelekek.png" Width="64" HorizontalAlignment="Right"
+                                       Margin="7,0,0,0"/>
         </StackPanel>
     </Grid>
     </Page>

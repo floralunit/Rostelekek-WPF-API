@@ -25,6 +25,12 @@ namespace Rostelekek_WPF_API.Windows
     
     public partial class ManagerWindow : Window
     {
+        List<Worker> workers = new List<Worker>();
+        List<Customer> customers = new List<Customer>();
+        List<Service> services = new List<Service>();
+        List<Equip> equips = new List<Equip>();
+        List<Order> orders = new List<Order>();
+        List<Work_Act> acts = new List<Work_Act>();
         public ManagerWindow()
         {
             InitializeComponent();
@@ -34,6 +40,7 @@ namespace Rostelekek_WPF_API.Windows
         {
             try
             {
+
                 var client = new HttpClient();
                 HttpResponseMessage response = new HttpResponseMessage();
                 var uri = new Uri("https://rostelekek.herokuapp.com/order");
@@ -43,21 +50,74 @@ namespace Rostelekek_WPF_API.Windows
                 JArray o = JArray.Parse(json);
                 JArray ob = JArray.Parse(o.ToString());
                 var pipa = JsonConvert.DeserializeObject<List<Order>>(ob.ToString());
-                orderList.ItemsSource = pipa.ToList();
+                orders = pipa.ToList();
+
+                uri = new Uri("https://rostelekek.herokuapp.com/equipment");
+                response = await client.GetAsync(uri);
+                json = response.Content.ReadAsStringAsync().Result;
+                o = JArray.Parse(json);
+                ob = JArray.Parse(o.ToString());
+                var pipa2 = JsonConvert.DeserializeObject<List<Equip>>(ob.ToString());
+                equips = pipa2.ToList();
+
+                uri = new Uri("https://rostelekek.herokuapp.com/customer");
+                response = await client.GetAsync(uri);
+                json = response.Content.ReadAsStringAsync().Result;
+                o = JArray.Parse(json);
+                ob = JArray.Parse(o.ToString());
+                var pipa3 = JsonConvert.DeserializeObject<List<Customer>>(ob.ToString());
+                customers = pipa3.ToList();
+
+                for (int or = 0; or < orders.Count(); or++)
+                {
+                    for (int c = 0; c < customers.Count(); c++)
+                    {
+                            for (int eq = 0; eq < equips.Count(); eq++)
+                            {
+                                if (orders[or].id_equip == equips[eq].id && orders[or].id_customer == customers[c].id)
+                                {
+                                    orders[or].customer = customers[c].name;
+                                    orders[or].equip =equips[eq].name;
+                                }
+                            }
+                    }
+                }
+                orderList.ItemsSource = orders.ToList();
+
+                uri = new Uri("https://rostelekek.herokuapp.com/worker");
+                response = await client.GetAsync(uri);
+                json = response.Content.ReadAsStringAsync().Result;
+                o = JArray.Parse(json);
+                ob = JArray.Parse(o.ToString());
+                var pipa4 = JsonConvert.DeserializeObject<List<Worker>>(ob.ToString());
+                workers = pipa4.ToList();
 
                 uri = new Uri("https://rostelekek.herokuapp.com/work-act");
                 response = await client.GetAsync(uri);
                 json = response.Content.ReadAsStringAsync().Result;
                 o = JArray.Parse(json);
                 ob = JArray.Parse(o.ToString());
-                var pipa1 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
-                orderProcessList.ItemsSource = pipa1.Where(p => p.state != "Завершен").ToList();
+                var pipa10 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
+                acts = pipa10.ToList();
 
-                var pipa2 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
-                orderDoneList.ItemsSource = pipa2.Where(p => p.state == "Завершен").ToList();
+
+                for (int a=0;a< acts.Count();a++)
+                {
+                    for (int w = 0; w < workers.Count(); w++)
+                    {
+                        if (acts[a].id_worker == workers[w].id) acts[a].worker = workers[w].name;
+                    }
+                }
+                orderProcessList.ItemsSource = acts.Where(p => p.state != "Завершен").ToList();
+
+                var pipa5 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
+                acts = pipa5;
+                orderDoneList.ItemsSource = acts.Where(p => p.state == "Завершен").ToList();
+
             }
             catch
             {
+               
                 MessageBox.Show("Данные отсутствуют");
             }
 
@@ -69,7 +129,6 @@ namespace Rostelekek_WPF_API.Windows
             if (orderList.SelectedItem == null) return;
             // получаем выделенный объект
             Order order = orderList.SelectedItem as Order;
-
             ActAddWindow orderWindow = new ActAddWindow(order.id);
             orderWindow.Show();
         }

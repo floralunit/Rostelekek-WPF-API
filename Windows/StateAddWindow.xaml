@@ -1,17 +1,17 @@
-﻿<Window x:Class="Rostelekek_WPF_API.Windows.ActAddWindow"
+﻿<Window x:Class="Rostelekek_WPF_API.Windows.StateAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rostelekek_WPF_API.Windows"
         mc:Ignorable="d"
-      Title="Создание заказ-наряда" Height="400" Width="600"
+      Title="Изменение состояния" Height="400" Width="600"
          ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         FontFamily="Segoe UI Historic"
         FontSize="16"
-        Loaded ="ActAddWindow_Loaded"
-        Background="#fff2b2"
+        Background="white"
+        Loaded="StateAddWindow_Loaded"
         >
     <Window.Resources>
         <Style TargetType="TextBlock">
@@ -27,33 +27,18 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Номер заказа: " Grid.Row="0" />
-        <TextBlock Text="Улица: " Grid.Row="1" />
-        <TextBlock Text="Дом: " Grid.Row="2" />
-        <TextBlock Text="Квартира: " Grid.Row="3" />
-        <TextBlock Text="Дата приступления к работе: " Grid.Row="4" />
-        <TextBlock Text="Исполнитель:" Grid.Row="5" />
+        <TextBlock Text="Дата завершения: " Grid.Row="1" />
+        <TextBlock Text="Состояние: " Grid.Row="2" />
 
-        <TextBox Name="TBOrder" Text="{Binding id}" Grid.Column="1" IsReadOnly="True" />
-        <TextBox Name="TBStreet" Text="{Binding street}" Grid.Column="1" Grid.Row="1" IsReadOnly="True" />
-        <TextBox Name="TBHome" Text="{Binding home}" Grid.Column="1" Grid.Row="2" IsReadOnly="True"/>
-        <TextBox Name="TBFlat" Text="{Binding flat}" Grid.Column="1" Grid.Row="3" IsReadOnly="True" />
-        <TextBox Name="TBDate" Text="{Binding start_date}" Grid.Column="1" Grid.Row="4" />
-        <ComboBox Name="CBWorker" Margin="8" Grid.Column="1" Grid.Row="5">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBox Text="{Binding name}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <TextBox Name="TBOrder" Text="{Binding id_order}"   Grid.Column="1" IsReadOnly="True" />
+        <TextBox Name="TBDate" Text="{Binding end_date}" Grid.Column="1" Grid.Row="1" />
+        <TextBox Name="TBState" Text="{Binding state}" Grid.Column="1" Grid.Row="2" />
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2">
             <Button
@@ -61,7 +46,7 @@
                 Height="25"
                 Width="100"
                 Margin="10"
-                IsDefault="True" Click="AcceptCreate_Click">Отправить наряд</Button>
+                IsDefault="True" Click="AcceptCreate_Click">Ок</Button>
             <Button
                 Height="25"
                 Width="100"

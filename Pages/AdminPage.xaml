@@ -17,7 +17,7 @@ d:DesignHeight="450" d:DesignWidth="800"
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Управление сотрудниками Ростелекек</Label>
+            <Label Name="label" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Управление сотрудниками</Label>
             <Button Name="BCreate" 
                     Margin="10" 
                     Background="Transparent"
@@ -28,6 +28,7 @@ d:DesignHeight="450" d:DesignWidth="800"
                     Click="BCreate_Click" >Добавить нового сотрудника</Button>
             <ListView Name="LViewWorkers"
                               Height="150" 
+      
                               Background="White"  
                               Margin="10,5,10,5"
                       ItemsSource="{Binding}"
@@ -42,12 +43,10 @@ d:DesignHeight="450" d:DesignWidth="800"
                 </ListView.ItemContainerStyle>
                 <ListView.View>
 
-                    <GridView AllowsColumnReorder="false" >
+                    <GridView AllowsColumnReorder="false">
 
                         <GridView.Columns>
                             <GridViewColumn Header="Номер" CellTemplate="{StaticResource idTemplate}"></GridViewColumn>
-                            <GridViewColumn Header="Логин" CellTemplate="{StaticResource loginTemplate}"></GridViewColumn>
-                            <GridViewColumn Header="Пароль" CellTemplate="{StaticResource passwordTemplate}"></GridViewColumn>
                             <GridViewColumn Header="Имя" CellTemplate="{StaticResource nameTemplate}"></GridViewColumn>
                             <GridViewColumn Header="Опыт работы" CellTemplate="{StaticResource experienceTemplate}"></GridViewColumn>
                             <GridViewColumn Header="Должность" CellTemplate="{StaticResource positionTemplate}"></GridViewColumn>
@@ -76,6 +75,8 @@ d:DesignHeight="450" d:DesignWidth="800"
                                         Name="BDelete"
                                         Click="BDelete_Click" 
                                         Content="Удалить"></Button>
+            <Image Source="/Assets/rostelekek.png" Width="64" HorizontalAlignment="Right"
+                                       Margin="7,50,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

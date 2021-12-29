@@ -85,5 +85,6 @@
                Margin="25,25,25,0"
                 Content="Войти"
                 Click="BLogin_Click"/>
+
     </Grid>
 </Window>

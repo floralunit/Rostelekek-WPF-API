@@ -104,3 +104,5 @@ C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Pages\ServiceP
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ServiceAddWindow.baml
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ActEditWindow.g.cs
 C:\Users\floralunit\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\ActEditWindow.baml
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\StateAddWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Rostelekek-WPF-API\obj\Debug\Windows\StateAddWindow.baml

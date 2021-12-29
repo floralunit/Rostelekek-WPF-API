@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Rostelekek_WPF_API.Windows;
 
 namespace Rostelekek_WPF_API.Windows
 {
@@ -41,21 +42,27 @@ namespace Rostelekek_WPF_API.Windows
                 JArray o = JArray.Parse(json);
                 JArray ob = JArray.Parse(o.ToString());
                 var pipa = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
-                activeList.ItemsSource = pipa.Where(p => p.state != "Завершен").ToList();
+                activeList.ItemsSource = pipa.Where(p => p.state != "Завершен" && p.id_worker==1).ToList();
 
                 var pipa1 = JsonConvert.DeserializeObject<List<Work_Act>>(ob.ToString());
-                doneList.ItemsSource = pipa1.Where(p => p.state == "Завершен").ToList();
+                doneList.ItemsSource = pipa1.Where(p => p.state == "Завершен" && p.id_worker == 1).ToList();
+                label.Content = String.Format("Заказ-наряды для исполнителя № " + pipa1[0].id_worker);
             }
             catch
             {
                 MessageBox.Show("Данные отсутствуют");
             }
-
+            
 
         }
 
         private async void BEdit_Click(object sender, RoutedEventArgs e)
         {
+            if (activeList.SelectedItem == null) return;
+            // получаем выделенный объект
+            Work_Act act = activeList.SelectedItem as Work_Act;
+            StateAddWindow actWindow = new StateAddWindow(act.id);
+            actWindow.Show();
         }
         private void BExit_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +72,7 @@ namespace Rostelekek_WPF_API.Windows
 
         private void BRestart_Click(object sender, RoutedEventArgs e)
         {
-            new ManagerWindow().Show();
+            new WorkerWindow().Show();
             this.Close();
         }
         private void BMinimize_Click(object sender, RoutedEventArgs e)

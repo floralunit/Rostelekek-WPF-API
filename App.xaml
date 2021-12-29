@@ -187,32 +187,128 @@
 
         <DataTemplate x:Key="idTemplate">
             <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
-                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=id}" TextAlignment="Center"/>
+                <TextBlock Margin="0"  Text="{Binding Path=id}"
+                            Width="50"
+                           TextAlignment="Center"/>
             </Border>
         </DataTemplate>
-        <DataTemplate x:Key="loginTemplate">
-            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
-                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=login, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-            </Border>
-        </DataTemplate>
+
         <DataTemplate x:Key="nameTemplate">
             <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
-                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=name, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                <TextBlock Margin="0"  Text="{Binding Path=name, UpdateSourceTrigger=PropertyChanged}" 
+                           Width="170"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="positionTemplate">
             <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
-                <TextBlock Padding="25,2,31,2" Text="{Binding Path=position, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                <TextBlock  Text="{Binding Path=position, UpdateSourceTrigger=PropertyChanged}" 
+                           Width="100"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
             </Border>
         </DataTemplate>
-        <DataTemplate x:Key="passwordTemplate">
-            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
-                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=password, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
-            </Border>
-        </DataTemplate>
+
         <DataTemplate x:Key="experienceTemplate">
             <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
-                <TextBlock Margin="0" Padding="25,2,31,2" Text="{Binding Path=experience, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                <TextBlock Margin="0"  Text="{Binding Path=experience, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="priceTemplate">
+            <Border Margin="-11,0" BorderThickness="1,1,0,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=price, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"
+                           Width="50"
+                           TextWrapping="Wrap"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="notesTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=notes, UpdateSourceTrigger=PropertyChanged}"
+                           Width="215"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="customerTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=customer, UpdateSourceTrigger=PropertyChanged}"
+                           Width="100"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="serviceTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=id_service, UpdateSourceTrigger=PropertyChanged}"
+                           Width="50"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="equipTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0" Text="{Binding Path=equip, UpdateSourceTrigger=PropertyChanged}"
+                           Width="100"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="dateTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=date, UpdateSourceTrigger=PropertyChanged}"
+                           Width="200"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="priceEndTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=end_price, UpdateSourceTrigger=PropertyChanged}"
+                           Width="100"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="orderTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=id_order, UpdateSourceTrigger=PropertyChanged}"
+                           Width="30"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="workerTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=worker, UpdateSourceTrigger=PropertyChanged}"
+                           Width="100"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="startdateTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=start_date, UpdateSourceTrigger=PropertyChanged}"
+                           Width="150"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="stateTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=state, UpdateSourceTrigger=PropertyChanged}"
+                           Width="115"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="enddateTemplate">
+            <Border Margin="-11,0,-2,0" BorderThickness="1,1,1,0" BorderBrush="#28666e" SnapsToDevicePixels="True">
+                <TextBlock Margin="0"  Text="{Binding Path=finish_date, UpdateSourceTrigger=PropertyChanged}"
+                           Width="150"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
             </Border>
         </DataTemplate>
     </Application.Resources>
